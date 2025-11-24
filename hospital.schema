@@ -1,0 +1,52 @@
+CREATE DATABASE Hospital;
+
+USE Hospital;
+
+CREATE TABLE Convenio (
+id_convenio INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(255),
+CNPJ INT,
+tempo_carencia timestamp 
+);
+
+CREATE TABLE Especialidade (
+id_especialidade INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(255)
+);
+
+CREATE TABLE Medico (
+id_medico INT PRIMARY KEY AUTO_INCREMENT,
+especialidade INT,
+FOREIGN KEY (especialidade) REFERENCES especialidade(id_especialidade),
+nome VARCHAR(255),
+crm INT,
+telefone VARCHAR(255)
+);
+
+CREATE TABLE Paciente (
+id_paciente int PRIMARY KEY AUTO_INCREMENT,
+rg_paciente VARCHAR(11),
+cpf_paciente VARCHAR(11),
+nome VARCHAR(255),
+email_paciente VARCHAR(255),
+data_nascimento VARCHAR(255),
+telefone VARCHAR(255),
+endereco VARCHAR(255),
+id_convenio INT,
+FOREIGN KEY (id_convenio) REFERENCES convenio(id_convenio)
+);
+
+CREATE TABLE Enfermeiro (
+id_enfermeiro INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR(255),
+cpf INT,
+CRE INT
+);
+
+CREATE TABLE Internacao (
+id_internacao int PRIMARY KEY AUTO_INCREMENT, 
+data_entrada TIMESTAMP,
+data_prev_alta TIMESTAMP,
+procedimento VARCHAR(255),
+valor_diaria float
+);
