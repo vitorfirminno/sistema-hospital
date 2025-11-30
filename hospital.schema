@@ -50,3 +50,25 @@ data_prev_alta TIMESTAMP,
 procedimento VARCHAR(255),
 valor_diaria float
 );
+
+CREATE TABLE Consulta (
+id_consulta INT PRIMARY KEY AUTO_INCREMENT,
+id_paciente INT NOT NULL,
+id_medico INT NOT NULL,
+id_convenio INT,
+data_hora DATETIME NOT NULL,
+valor DECIMAL(10,2),
+FOREIGN KEY (id_paciente) REFERENCES Paciente(id_paciente),
+FOREIGN KEY (id_medico) REFERENCES Medico(id_medico),
+FOREIGN KEY (id_convenio) REFERENCES Convenio(id_convenio)
+);
+
+ALTER TABLE internacao
+ADD COLUMN id_paciente INT,
+ADD COLUMN id_medico  INT,
+ADD COLUMN id_enfermeiro_chefe INT;
+
+ALTER TABLE Internacao
+ADD FOREIGN KEY (id_paciente) REFERENCES Paciente(id_paciente),
+ADD FOREIGN KEY (id_medico) REFERENCES Medico(id_medico),
+ADD FOREIGN KEY (id_enfermeiro_chefe) REFERENCES Enfermeiro(id_enfermeiro);
