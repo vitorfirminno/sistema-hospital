@@ -1,10 +1,11 @@
 package com.hospital.backend.adapter.in.rest;
 
 import com.hospital.backend.adapter.out.repository.PacienteRepository;
-import com.hospital.backend.adapter.out.repository.entity.PacienteEntity;
 import com.hospital.backend.application.core.domain.Paciente;
+import com.hospital.backend.application.ports.in.CreatePacienteInputPort;
+import com.hospital.backend.application.ports.in.DeletePacienteByIdInputPort;
 import com.hospital.backend.application.ports.in.GetPacienteInputPort;
-import com.hospital.backend.application.ports.out.GetPacienteOutputPort;
+import com.hospital.backend.application.ports.in.UpdatePacienteInputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,31 +19,38 @@ public class Controller {
     private PacienteRepository pacienteRepository;
 
     @Autowired
-    private GetPacienteOutputPort getPacienteOutputPort;
-
-    @Autowired
     private GetPacienteInputPort getPacienteInputPort;
 
+    @Autowired
+    private UpdatePacienteInputPort updatePacienteInputPort;
+
+    @Autowired
+    private DeletePacienteByIdInputPort deletePacienteByIdInputPort;
+
+    @Autowired
+    private CreatePacienteInputPort createPacienteInputPort;
+
     @PostMapping
-    public String criar(@RequestBody PacienteEntity pacienteEntity){
-        pacienteRepository.insert(pacienteEntity);
+    public String criar(@RequestBody Paciente paciente){
+        createPacienteInputPort.create(paciente);
         return "paciente criado";
     }
 
     @GetMapping
     public List<Paciente> buscarTodos(){
-        return getPacienteInputPort.get();
+        var a = getPacienteInputPort.get();
+        return a;
     }
 
-    @PostMapping("/atualizar/{id}")
-    public String atualizar(@PathVariable Long id, @RequestBody PacienteEntity pacienteEntity){
-        pacienteRepository.update(id, pacienteEntity);
-        return "paciente criado";
+    @PutMapping("/atualizar/{id}")
+    public String atualizar(@PathVariable Long id, @RequestBody Paciente paciente){
+        updatePacienteInputPort.update(id, paciente);
+        return "paciente editado";
     }
 
     @DeleteMapping("/{id}")
     public String deletar(@PathVariable Long id){
-        var deleted = pacienteRepository.delete(id);
+        var deleted = deletePacienteByIdInputPort.delete(id);
         if (deleted){
             return "deletado";
         }

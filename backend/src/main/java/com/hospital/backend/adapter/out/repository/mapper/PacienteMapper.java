@@ -14,13 +14,20 @@ import java.util.List;
 public interface PacienteMapper {
 
     @Mapping(target = "dataNascimento", expression = "java(mapStringToDate(pacienteEntity.getDataNascimento()))")
+//    @Mapping(source = "id", target = "id")
+//    @Mapping(source = "rg", target = "rg")
+//    @Mapping(source = "cpf", target = "cpf")
+//    @Mapping(source = "nome", target = "nome")
+//    @Mapping(source = "email", target = "email")
+//    @Mapping(source = "telefone", target = "telefone")
+//    @Mapping(source = "endereco", target = "endereco")
+//    @Mapping(source = "idConvenio", target = "idConvenio")
     Paciente toDomain(PacienteEntity pacienteEntity);
 
     default Date mapStringToDate(String date){
         if (date == null || date.isBlank()) {
             return null;
         }
-
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             return dateFormat.parse(date);

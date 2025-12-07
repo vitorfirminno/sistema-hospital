@@ -14,6 +14,7 @@ public class GetPacienteUseCase implements GetPacienteInputPort {
     }
     @Override
     public List<Paciente> get() {
-        return getPacienteOutputPort.get();
+        List<Paciente> pacientes =  getPacienteOutputPort.get();
+        return pacientes;
     }
 }

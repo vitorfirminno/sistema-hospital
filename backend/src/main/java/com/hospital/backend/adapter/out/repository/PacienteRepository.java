@@ -24,9 +24,7 @@ public class PacienteRepository {
         int linhaAfetada =  jdbcClient.sql(SQL).params(pacienteEntity.getId(), pacienteEntity.getRg(), pacienteEntity.getCpf(), pacienteEntity.getNome(),
                 pacienteEntity.getEmail(), pacienteEntity.getDataNascimento(), pacienteEntity.getTelefone(), pacienteEntity.getEndereco(),
                 pacienteEntity.getIdConvenio()).update();
-
         Assert.state(linhaAfetada == 1, "Erro PacienteEntity - insert - Erro ao inserir Paciente");
-
     }
 
     public List<PacienteEntity> getAll(){

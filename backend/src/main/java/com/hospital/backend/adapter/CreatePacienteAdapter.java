@@ -2,27 +2,24 @@ package com.hospital.backend.adapter;
 
 import com.hospital.backend.adapter.out.repository.PacienteRepository;
 import com.hospital.backend.adapter.out.repository.entity.PacienteEntity;
-import com.hospital.backend.adapter.out.repository.mapper.PacienteMapper;
+import com.hospital.backend.adapter.out.repository.entity.mapper.PacienteEntityMapper;
 import com.hospital.backend.application.core.domain.Paciente;
-import com.hospital.backend.application.ports.out.GetPacienteOutputPort;
+import com.hospital.backend.application.ports.out.CreatePacienteOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
-public class GetPacienteAdapter implements GetPacienteOutputPort {
+public class CreatePacienteAdapter implements CreatePacienteOutputPort {
 
     @Autowired
     private PacienteRepository pacienteRepository;
 
     @Autowired
-    private PacienteMapper pacienteMapper;
+    PacienteEntityMapper pacienteEntityMapper;
 
     @Override
-    public List<Paciente> get() {
-        List<PacienteEntity> pacientesEntity = pacienteRepository.getAll();
-        return pacienteMapper.toListDomain(pacientesEntity);
+    public void create(Paciente paciente) {
+        PacienteEntity pacienteEntity = pacienteEntityMapper.toEntity(paciente);
+        pacienteRepository.insert(pacienteEntity);
     }
-
 }
