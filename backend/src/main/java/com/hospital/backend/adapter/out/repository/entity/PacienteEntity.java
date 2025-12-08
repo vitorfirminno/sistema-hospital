@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -14,7 +16,7 @@ public class PacienteEntity {
     private String cpf;
     private String nome;
     private String email;
-    private String dataNascimento;
+    private String dataNascimento; //null
     private String telefone;
     private String endereco;
     private Long idConvenio;

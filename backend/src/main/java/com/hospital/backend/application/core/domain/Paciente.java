@@ -1,15 +1,16 @@
 package com.hospital.backend.application.core.domain;
 
 import java.text.DateFormat;
+import java.util.Date;
 
 public class Paciente {
 
     private Long id;
-    private String Rg;
+    private String rg;
     private String cpf;
     private String nome;
     private String email;
-    private DateFormat dataNascimento;
+    private Date dataNascimento;
     private String telefone;
     private String endereco;
     private Long idConvenio;
@@ -17,9 +18,9 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(Long id, String rg, String cpf, String nome, String email, DateFormat dataNascimento, String telefone, String endereco, Long idConvenio) {
+    public Paciente(Long id, String rg, String cpf, String nome, String email, Date dataNascimento, String telefone, String endereco, Long idConvenio) {
         this.id = id;
-        Rg = rg;
+        this.rg = rg;
         this.cpf = cpf;
         this.nome = nome;
         this.email = email;
@@ -38,11 +39,11 @@ public class Paciente {
     }
 
     public String getRg() {
-        return Rg;
+        return rg;
     }
 
     public void setRg(String rg) {
-        Rg = rg;
+        this.rg = rg;
     }
 
     public String getCpf() {
@@ -69,11 +70,11 @@ public class Paciente {
         this.email = email;
     }
 
-    public DateFormat getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(DateFormat dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
