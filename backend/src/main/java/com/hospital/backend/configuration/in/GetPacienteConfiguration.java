@@ -1,9 +1,9 @@
 package com.hospital.backend.configuration.in;
 
 
-import com.hospital.backend.application.core.useCase.GetPacienteUseCase;
+import com.hospital.backend.application.core.useCase.paciente.GetPacienteUseCase;
 import com.hospital.backend.application.ports.in.GetPacienteInputPort;
-import com.hospital.backend.application.ports.out.GetPacienteOutputPort;
+import com.hospital.backend.application.ports.out.paciente.GetPacienteOutputPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

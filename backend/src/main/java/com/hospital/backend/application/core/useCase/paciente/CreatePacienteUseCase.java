@@ -1,8 +1,8 @@
-package com.hospital.backend.application.core.useCase;
+package com.hospital.backend.application.core.useCase.paciente;
 
 import com.hospital.backend.application.core.domain.Paciente;
 import com.hospital.backend.application.ports.in.CreatePacienteInputPort;
-import com.hospital.backend.application.ports.out.CreatePacienteOutputPort;
+import com.hospital.backend.application.ports.out.paciente.CreatePacienteOutputPort;
 
 public class CreatePacienteUseCase implements CreatePacienteInputPort {
 
