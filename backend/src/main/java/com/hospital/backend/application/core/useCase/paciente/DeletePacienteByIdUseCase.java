@@ -1,7 +1,7 @@
-package com.hospital.backend.application.core.useCase;
+package com.hospital.backend.application.core.useCase.paciente;
 
 import com.hospital.backend.application.ports.in.DeletePacienteByIdInputPort;
-import com.hospital.backend.application.ports.out.DeletePacienteByIdOutputPort;
+import com.hospital.backend.application.ports.out.paciente.DeletePacienteByIdOutputPort;
 
 public class DeletePacienteByIdUseCase implements DeletePacienteByIdInputPort {
 

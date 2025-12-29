@@ -1,8 +1,8 @@
-package com.hospital.backend.application.core.useCase;
+package com.hospital.backend.application.core.useCase.paciente;
 
 import com.hospital.backend.application.core.domain.Paciente;
 import com.hospital.backend.application.ports.in.GetPacienteInputPort;
-import com.hospital.backend.application.ports.out.GetPacienteOutputPort;
+import com.hospital.backend.application.ports.out.paciente.GetPacienteOutputPort;
 import java.util.List;
 
 public class GetPacienteUseCase implements GetPacienteInputPort {
@@ -14,7 +14,6 @@ public class GetPacienteUseCase implements GetPacienteInputPort {
     }
     @Override
     public List<Paciente> get() {
-        List<Paciente> pacientes =  getPacienteOutputPort.get();
-        return pacientes;
+        return getPacienteOutputPort.get();
     }
 }

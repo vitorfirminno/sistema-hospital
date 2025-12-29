@@ -1,11 +1,8 @@
-package com.hospital.backend.application.core.useCase;
+package com.hospital.backend.application.core.useCase.paciente;
 
 import com.hospital.backend.application.core.domain.Paciente;
-import com.hospital.backend.application.ports.in.GetPacienteInputPort;
 import com.hospital.backend.application.ports.in.UpdatePacienteInputPort;
-import com.hospital.backend.application.ports.out.UpdatePacienteOutputPort;
-
-import java.util.List;
+import com.hospital.backend.application.ports.out.paciente.UpdatePacienteOutputPort;
 
 public class UpdatePacienteUseCase implements UpdatePacienteInputPort {
 

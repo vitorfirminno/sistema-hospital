@@ -4,19 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class PacienteEntity {
+public class MedicoEntity {
+
     private Long id;
-    private String rg;
-    private String cpf;
+    private Long especialidadeId;
     private String nome;
-    private String email;
-    private String dataNascimento; //null
+    private Long crm;
     private String telefone;
-    private String endereco;
-    private Long idConvenio;
+
 }

@@ -1,4 +1,4 @@
-package com.hospital.backend.application.ports.out;
+package com.hospital.backend.application.ports.out.paciente;
 
 import com.hospital.backend.application.core.domain.Paciente;
 
